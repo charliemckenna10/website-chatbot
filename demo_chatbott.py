@@ -5,8 +5,8 @@ import json
 from datetime import datetime
 import re
 
-load_dotenv("/Users/charliemckenna/WhatsApp/src/.env")
-client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
+load_dotenv(".env")
+client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 with open("uk_cities.txt", "r") as f:
     UK_CITIES = set(city.strip().lower() for city in f if city.strip())
