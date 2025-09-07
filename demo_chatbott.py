@@ -72,7 +72,7 @@ class RealEstateBot:
             7. Always keep responses short, clear, and helpful.
             After you have collected the user's budget, location, property type, and number of bedrooms:
             - Summarize their requirements back to them.
-            - Provide 1-2 short example property listings (you can make up realistic sample data).
+            - Provide 9 - 10 short example property listings (you can make up realistic sample data).
             - Encourage the user to provide their phone number or email so an agent can follow up.
             - Then continue answering FAQs or property-related questions as needed.
             """
@@ -114,4 +114,4 @@ class RealEstateBot:
 
         log_usage(user_message, bot_response)
 
-        return bot_response, self.leads
+        return bot_response, self.leads 
