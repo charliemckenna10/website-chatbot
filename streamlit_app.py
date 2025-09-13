@@ -9,7 +9,9 @@ if "conversation" not in st.session_state:
 
 st.title("🏠 Real Estate Chatbot")
 
-
+if st.button("Clear"):
+    st.session_state.conversation = []
+    
 user_input = st.chat_input("Type your message here...")
 
 if user_input:
@@ -25,3 +27,5 @@ for msg in st.session_state.conversation:
         st.chat_message("user").write(msg["content"])
     else:
         st.chat_message("assistant").write(msg["content"])
+
+
