@@ -10,7 +10,8 @@ if "bot" not in st.session_state:
     st.session_state.bot.messages.append({"role": "assistant", "content": WELCOME_MESSAGE})
 
 if "conversation" not in st.session_state:
-    st.session_state.conversation = []
+    st.session_state.conversation = [{"role": "assistant", "content": WELCOME_MESSAGE}]
+
 
 st.title("🏠 Real Estate Chatbot")
 
