@@ -10,7 +10,7 @@ if "bot" not in st.session_state:
 if "conversation" not in st.session_state:
     st.session_state.conversation = [
         {"role": "assistant",
-         "content": "👋 Hello! I'm your Real Estate Assistant. Tell me your budget, location, and property type, and I'll find some options for you."}
+         "content": "👋 Hi! I’m PrimeProp AI, here to help you discover the perfect home or investment. Tell me your budget, location, or any property questions, and I’ll get started."}
     ]
 
 st.title("🏠 Real Estate Chatbot")
