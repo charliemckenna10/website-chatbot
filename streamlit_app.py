@@ -1,6 +1,7 @@
 import streamlit as st
 from demo_chatbott import RealEstateBot
 
+st.set_page_config(page_title="🏠 Real Estate Chatbot", page_icon="🏡")
 
 if "bot" not in st.session_state:
     st.session_state.bot = RealEstateBot()
@@ -11,7 +12,8 @@ st.title("🏠 Real Estate Chatbot")
 
 if st.button("Clear"):
     st.session_state.conversation = []
-    
+    st.session_state.bot = RealEstateBot()
+
 user_input = st.chat_input("Type your message here...")
 
 if user_input:

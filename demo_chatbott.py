@@ -40,7 +40,6 @@ def extract_property_type(text):
         return "Any"
     return None
 
-
 def log_usage(user_message, bot_response):
     log_entry = {
         "timestamp": str(datetime.now()),
@@ -104,7 +103,8 @@ class RealEstateBot:
         completion = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages = self.messages,
-            temperature = 0.7
+            temperature = 0.7,
+            max_tokens = 3000
         )
 
         bot_response = completion.choices[0].message.content
