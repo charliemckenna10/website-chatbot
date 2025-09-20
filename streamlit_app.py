@@ -2,7 +2,7 @@ import streamlit as st
 from demo_chatbott import RealEstateBot
 
 WELCOME_MESSAGE = "👋 Hi! I'm PrimeProp AI, here to help you discover the perfect home or investment. Tell me your budget, location, or any property questions, and I'll get started."
-
+st.set_page_config(page_title="🏠 Real Estate Chatbot", page_icon="🏡")
 
 if "bot" not in st.session_state:
     st.session_state.bot = RealEstateBot()
