@@ -18,9 +18,13 @@ def save_usage(data):
     FILE.write_text(json.dumps(data))
 
 if "user_id" not in st.session_state:
-    params = st.query_params
-    st.session_state.user_id = params.get("uid", [None])[0] or str(uuid.uuid4())
-    st.experimental_set_query_params(uid=st.session_state.user_id)
+    uid_from_url = st.query_params.get("uid", [None])[0]
+    if uid_from_url:
+        st.session_state.user_id = uid_from_url
+    else:
+        st.session_state.user_id = str(uuid.uuid4())
+        st.experimental_set_query_params(uid=st.session_state.user_id)
+
 
 
 usage = load_usage()
