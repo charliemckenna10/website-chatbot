@@ -4,7 +4,7 @@ import uuid
 import json
 from pathlib import Path
 
-user_input = st.chat_input("Type your message here...")
+
 
 
 LIMIT = 50
@@ -18,10 +18,10 @@ def save_usage(data):
     FILE.write_text(json.dumps(data))
 
 if "user_id" not in st.session_state:
-    st.session_state.user_id = st.experimental_get_query_params().get("uid", [None])[0]
-    if not st.session_state.user_id:
-        st.session_state.user_id = str(uuid.uuid4())
-        st.experimental_set_query_params(uid=st.session_state.user_id)
+    params = st.query_params
+    st.session_state.user_id = params.get("uid", [None])[0] or str(uuid.uuid4())
+    st.experimental_set_query_params(uid=st.session_state.user_id)
+
 
 usage = load_usage()
 tokens = usage.get(st.session_state.user_id, 0)
@@ -62,6 +62,6 @@ if user := st.chat_input("Type your message here..."):
 
 
 for msg in st.session_state.conversation:
-    st.chat_message(msg["role"]).write(msg["content"])
+    st.chat_input("Type your message here...")
 
 
