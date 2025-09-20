@@ -7,7 +7,7 @@ from pathlib import Path
 user_input = st.chat_input("Type your message here...")
 
 
-LIMIT = 3000
+LIMIT = 50
 FILE = Path("usage.json")
 
 
