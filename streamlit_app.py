@@ -1,7 +1,7 @@
 import streamlit as st
 from demo_chatbott import RealEstateBot
 
-WELCOME_MESSAGE = "👋 Hello! I'm your Real Estate Assistant. Tell me your budget, location, and property type, and I'll find some options for you."
+WELCOME_MESSAGE = "👋 Hi! I'm PrimeProp AI, here to help you discover the perfect home or investment. Tell me your budget, location, or any property questions, and I'll get started."
 
 
 if "bot" not in st.session_state:
