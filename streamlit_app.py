@@ -3,7 +3,7 @@ from demo_chatbott import RealEstateBot
 import uuid, json
 from pathlib import Path
 
-LIMIT = 50
+LIMIT = 100
 FILE = Path("usage.json")
 
 def load_usage():
@@ -55,10 +55,11 @@ if user_input:
 
     st.session_state.conversation.append({"role": "user", "content": user_input})
 
+
     response, _ = st.session_state.bot.chat(user_input)
     st.session_state.conversation.append({"role": "assistant", "content": response})
-    
+
+
     usage[st.session_state.user_id] = tokens + len(response)
     save_usage(usage)
-    
-    st.experimental_rerun()
+
