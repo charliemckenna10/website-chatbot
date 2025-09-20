@@ -56,16 +56,16 @@ if st.button("Clear"):
     st.session_state.conversation = [{"role": "assistant", "content": WELCOME_MESSAGE}]
 
 
-if user := st.chat_input("Type your message here..."):
-    st.session_state.conversation.append({"role": "user", "content": user})
-    response, leads = st.session_state.bot.chat(user)
+for msg in st.session_state.conversation:
+    st.chat_message(msg["role"]).write(msg["content"])
+
+user_input = st.chat_input("Type your message here...")
+if user_input:
+
+    st.session_state.conversation.append({"role": "user", "content": user_input})
+
+    response, leads = st.session_state.bot.chat(user_input)
     st.session_state.conversation.append({"role": "assistant", "content": response})
 
     usage[st.session_state.user_id] = tokens + len(response)
     save_usage(usage)
-
-
-for msg in st.session_state.conversation:
-    st.chat_input("Type your message here...")
-
-
